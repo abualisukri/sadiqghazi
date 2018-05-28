@@ -285,14 +285,17 @@ $link = $_POST['link'];
 
 $long_url = urlencode($link);
 
+$long_url = urlencode('yourdestinationlink.com');
+$api_token = 'ab87d19f13db2934550640b86912f0c3d4211345';
+$api_url = "https://shrtfly.com/api?api={$api_token}&url={$long_url}&alias=CustomAlias";
+$result = @json_decode(file_get_contents($api_url),TRUE);
+if($result["status"] === 'error') {
+ echo $result["message"];
+} else {
+ echo $result["shortenedUrl"];
+} 
 
-//GET API ID AND SHORT
-$bitly_response = json_decode(file_get_contents("https://shrtfly.com/st?api=ab87d19f13db2934550640b86912f0c3d4211345&url="));
 
-$short_url = $bitly_response->data->url;
-
-
-?>
 <!-- End Functiom Here -->
 
 

@@ -296,6 +296,7 @@ if($result["status"] === 'error') {
 } 
 
 
+?>
 <!-- End Functiom Here -->
 
 
